@@ -16,7 +16,8 @@ jobs:
       - name: Run Tests
         run: |
           ##whoami
-          ls -l ~/.ssh
+          ls -la ~
+          pwd
           ## mkdir -p ~/.ssh && echo -e "${SSH_KEY//_/\\n}" > ~/.ssh/id_ecdsa && chmod og-rwx ~/.ssh/id_ecdsa
 
           # short sha is enough?
