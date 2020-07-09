@@ -36,7 +36,7 @@ jobs:
 
           ##echo "Test exit code: $test_result"
           ##exit $test_result
-        ##env:
-          ##SSH_KEY: ${{ secrets.S390X_SSH_KEY }}
+        env:
+          SSH_KEY: ${{ secrets.SSH_KEY }}
 
 
