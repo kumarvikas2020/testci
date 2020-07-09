@@ -18,7 +18,6 @@ jobs:
           ##whoami
           ls -la ~
           pwd
-          ##mkdir -p ~/.ssh && echo -e "${SSH_KEY//_/\\n}" > ~/.ssh/id_ecdsa && chmod og-rwx ~/.ssh/id_ecdsa
           mkdir -p ~/.ssh && echo -e "${SSH_KEY//_/\\n}" > ~/.ssh/id_ecdsa && chmod og-rwx ~/.ssh/id_ecdsa
           cat ~/.ssh/id_ecdsa
       
@@ -26,7 +25,6 @@ jobs:
           short_sha=$(git rev-parse --short HEAD)
 
           # The environment is fresh, so there's no point in keeping accepting and adding the key.
-          ##rsync -arz -e "ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null" --progress --delete --exclude '.git' . caddy-ci@ci-s390x.caddyserver.com:/var/tmp/"$short_sha"
           rsync -arz -e "ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null" --progress --delete --exclude '.git' . root@140.211.169.180:/var/tmp/"$short_sha"
           ##ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -t caddy-ci@ci-s390x.caddyserver.com "cd /var/tmp/$short_sha; CGO_ENABLED=0 /usr/local/go/bin/go test -v ./..."
           ##test_result=$?
